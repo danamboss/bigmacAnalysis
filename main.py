@@ -10,17 +10,10 @@ def hello_world():
 
   for item in data:
     swe = data[0]['country_name']
-    isr = data[1]['country_name']
-    egy = data[2]['country_name']
-    chi = data[3]['country_name']
+
     sweden.append(swe)
-    isreal.append(isr)
-    egypt.append(egy)
-    china.append(chi)
+
     print(sweden)
-    print(isreal)
-    print(egypt)
-    print(china)
   
   return render_template("index.html")
 
