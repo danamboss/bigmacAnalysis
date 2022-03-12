@@ -17,7 +17,10 @@ def get_data():
       url = f'https://restcountries.com/v3.1/alpha/{country}'
       request = urllib.request.urlopen(url)
       result = json.loads(request.read())
-        
+      number = float(round(data.iloc[0,3],2))
+      ##print(number, type(number))
+      
+      burger = "🍔" * (int(number))  
       country = {
         "country":country,
         "local_price": data.iloc[0,0],
@@ -29,12 +32,11 @@ def get_data():
         "flag":result[0]["flags"]["png"],
         "country_name":result[0]["name"]["common"],
         "currencies":result[0]["currencies"],
+        "burger":burger
       }
       data_list.append(country)
 
-      number = float(round(data.iloc[0,3],2))
-      print(number, type(number))
-      burger = "🍔" * (int(number))
-      data_list.append(burger)
+
+      ##data_list.append(burger)
     
   return data_list
