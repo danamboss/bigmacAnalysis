@@ -1,10 +1,12 @@
+import os
 import nasdaqdatalink
 import pandas as pd
 import json
 import urllib.request
 
-nasdaqdatalink.ApiConfig.api_key = 'KsY7x33je2Ui7rSQjCBE'
 
+my_secret = os.environ['ndqkey']
+nasdaqdatalink.ApiConfig.api_key = my_secret
 def get_data():
   countries = ["SWE","ISR","EGY","CHN"]
     
@@ -20,7 +22,7 @@ def get_data():
       number = float(round(data.iloc[0,3],2))
       ##print(number, type(number))
       
-      burger = "🍔" * (int(number))  
+      burger = "🍔" * (int(number)) 
       country = {
         "country":country,
         "local_price": data.iloc[0,0],
